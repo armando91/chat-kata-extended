@@ -1,0 +1,30 @@
+Chat-Kata-Extended Notas
+------------------------
+
+El proposito de esta kata es extender el chat-kata para soportar chat privados entre dos usuarios y agregar una capa de persistencia al servidor chat.
+
+
+Instrucciones
+-------------
+
+1) Comezar con la solucion del chat-kata que se subido como un nuevo repositorio: https://github.com/bqreaders/chat-kata-extended. Estudiar esta solucion (tanto cliente como servidor).
+
+2) La API ha sido redefinida en el README
+
+3) Debatir sobre la API y proponer cambios o mejoras si es necesario
+
+4) Adaptar el codigo existente a la nueva API
+
+5) Usar TDD para todas las implementaciones
+
+6) Implemetar una capa de persistencia en Java usando el patron DAO (http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/dao.html)
+
+7) Utilizar Redis (http://redis.io/) para la persistencia. El driver de Java Jedis (https://github.com/xetorthio/jedis)
+
+	- Usar Redis SortedSet para almacenar los utimos X numeros de mesages de cada chat. (X es un valor confirable via Config.groovy)
+
+	- Los key de los chats son 'public' para el pubic chat y 'nick1_nick2' para los chat privados usando la concatenacion de los nicks de los dos participantes ordenados alfabeticamente. 
+
+8) Cambiar el cliente para introducir la lista de usuarios y poder selcionar usuarios para abrir chat privados. 
+
+9) Deregistrar el usuario (DELETE API) con los eventos de exit de Android.
